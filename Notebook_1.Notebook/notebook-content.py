@@ -24,6 +24,7 @@ print('This feature branch')
 
 # CELL ********************
 
+print('this version was from featue b ')
 
 # METADATA ********************
 
