@@ -24,7 +24,7 @@ print('This feature branch')
 
 # CELL ********************
 
-print(f'this line was from feature a branch')
+
 
 # METADATA ********************
 
