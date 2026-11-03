@@ -11,9 +11,7 @@
 
 # CELL ********************
 
-# Welcome to your new notebook
-# Type here in the cell editor to add code!
-
+print(f'This was from feature branch A')
 
 # METADATA ********************
 
