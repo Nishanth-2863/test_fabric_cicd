@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Environment",
+    "displayName": "Low_compute",
+    "description": "Environment"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "cd3b66c1-746f-4879-a5ee-a1a9fccf71cd"
+  }
+}

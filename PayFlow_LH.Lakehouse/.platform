@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Lakehouse",
+    "displayName": "PayFlow_LH"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "cffa2376-1269-4d21-a9c0-4db9b1f61860"
+  }
+}
