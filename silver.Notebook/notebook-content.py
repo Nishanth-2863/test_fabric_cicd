@@ -8,12 +8,12 @@
 # META   },
 # META   "dependencies": {
 # META     "lakehouse": {
-# META       "default_lakehouse": "8282aa1d-2358-4b7d-b303-58da85a95ebf",
+# META       "default_lakehouse": "7131efb6-c747-43ba-9c97-eda80ba845d5",
 # META       "default_lakehouse_name": "PayFlow_LH",
-# META       "default_lakehouse_workspace_id": "aada2b73-9eee-44e7-9ae2-ebd4d64bc06b",
+# META       "default_lakehouse_workspace_id": "567b025c-c42e-41b4-855a-bfe31c6b01af",
 # META       "known_lakehouses": [
 # META         {
-# META           "id": "8282aa1d-2358-4b7d-b303-58da85a95ebf"
+# META           "id": "7131efb6-c747-43ba-9c97-eda80ba845d5"
 # META         }
 # META       ]
 # META     },
@@ -45,7 +45,7 @@ bronze_tbl = spark.table('bronze_transactions')
 windowspec = Window.partitionBy('txn_id').orderBy(F.col("txn_id").desc())
 df_cleaned = (bronze_tbl
                 .withColumn('r',F.row_number().over(windowspec))
-                .withColumn('status',F.upper(F.trim(col("status"))))
+                .withColumn('status',F.lower(F.trim(col("status"))))
                 .withColumn('amount',F.regexp_replace('amount',',','').cast('decimal(12,2)'))
                 .withColumn('txn_time',F.coalesce(
                     F.to_timestamp(F.col('txn_time'),'yyyy-MM-dd HH:mm:ss'),
@@ -93,5 +93,18 @@ print(f'Total transactions cx :{df_cleaned.count()} , good_transactions_cx :{df_
 
 # META {
 # META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
+# MAGIC %%sql
+# MAGIC 
+# MAGIC select * from dbo.bronze_transactions
+
+# METADATA ********************
+
+# META {
+# META   "language": "sparksql",
 # META   "language_group": "synapse_pyspark"
 # META }
