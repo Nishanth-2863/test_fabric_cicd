@@ -45,6 +45,7 @@ bronze_tbl = spark.table('bronze_transactions')
 windowspec = Window.partitionBy('txn_id').orderBy(F.col("txn_id").desc())
 df_cleaned = (bronze_tbl
                 .withColumn('r',F.row_number().over(windowspec))
+                .withColumn('status',F.upper(F.trim(col("status"))))
                 .withColumn('amount',F.regexp_replace('amount',',','').cast('decimal(12,2)'))
                 .withColumn('txn_time',F.coalesce(
                     F.to_timestamp(F.col('txn_time'),'yyyy-MM-dd HH:mm:ss'),
