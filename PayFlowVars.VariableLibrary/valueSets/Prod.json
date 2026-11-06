@@ -1,0 +1,14 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/variableLibrary/definition/valueSet/1.0.0/schema.json",
+  "name": "Prod",
+  "variableOverrides": [
+    {
+      "name": "source_folder",
+      "value": "input_prod"
+    },
+    {
+      "name": "fraud_threshold",
+      "value": 50000
+    }
+  ]
+}
